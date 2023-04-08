@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <div class="center">
+    <ion-card>
+      <ion-row style="margin-top: 41px;" class="ion-justify-content-center ion-margin-bottom">
+        <img src="../../../assets/img/oftalmo-icon.png" alt="Logo">
+      </ion-row>
+      <ion-card-title class="ion-text-center">Clínica Oftalmológica</ion-card-title>
+      <ion-row class="ion-justify-content-center">
+        <ion-item>
+          <ion-label position="floating">E-mail</ion-label>
+          <ion-input [(ngModel)]="email" placeholder="Digite seu e-mail"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row class="ion-justify-content-center ion-margin-bottom">
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input [(ngModel)]="senha" placeholder="Digite sua senha"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row style="margin-top: 41px;" class="ion-justify-content-center ion-margin-bottom">
+        <ion-button (click)="login()" style="width: 40vw;">Login</ion-button>
+        <ion-button (click)="register()" style="width: 40vw;">Registrar</ion-button>
+      </ion-row>
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon color="primary" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-end">
+      Cadastrar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="height: 100vh" class="ion-align-items-center">
+  <ion-card class="ion-justify-content-center">
+    <img src="../../../assets/img/oftalmo-icon.png" alt="Logo">
+    <ion-card-title class="ion-text-center">Clínica Oftalmológica</ion-card-title>
+    <ion-row class="ion-justify-content-center">
+      <ion-item>
+        <ion-input [(ngModel)]="name" placeholder="Nome:"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-item class="">
+        <ion-input [(ngModel)]="email" placeholder="E-mail:"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-item class="">
+        <ion-input [(ngModel)]="senha" placeholder="Senha: "></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button style="width: 90%;" (click)="send()" expand="block">Salvar</ion-button>
+    </ion-row>
+  </ion-card>
+</ion-content>
