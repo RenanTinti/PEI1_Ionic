@@ -1,4 +1,3 @@
-'use strict';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -42,7 +41,6 @@ export class CepPage {
     if (this.cep?.length == 8) {
       const dados = await fetch(url)
       const prom = dados.text()
-      let msg = ''
 
       prom.then((x: any) => {
         let obj = JSON.parse(x)
