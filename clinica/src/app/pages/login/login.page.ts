@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
+import { FireserviceService } from 'src/app/services/fireservice.service';
 
 @Component({
   selector: 'app-login',
@@ -8,38 +9,50 @@ import { NavController, ToastController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
-  email:string | undefined;
-  senha:string | undefined;
+
+  email: string | undefined;
+  senha: string | undefined;
 
   constructor(
     private nav: NavController,
     public toastController: ToastController,
     private route: Router,
+    public fireService: FireserviceService
 
   ) { }
 
   ngOnInit() {
   }
 
-  teste = 'teste'
+  async login() {
+    try {
+      const res: any = await this.fireService.loginWithEmail({ email: this.email, senha: this.senha });
+      this.route.navigate(['/home']);
+      this.presentToast('Logou com sucesso', 'success');
+    } catch (error: any) {
+      this.presentToast(error, 'danger');
+    }
+  }
 
-  login(){
-    const aux:any = localStorage.getItem('pessoa')
+  /*
+  login() {
+    const aux: any = localStorage.getItem('pessoa')
     var lista = JSON.parse(aux)
-    if(this.email === lista.email && this.senha === lista.senha){
+    if (this.email === lista.email && this.senha === lista.senha) {
       this.route.navigateByUrl('home')
       this.presentToast('Login Successful', 'success')
-    }else{
+    } else {
       this.presentToast('Wrong Login', 'danger')
     }
   }
 
-  register(){
+  */
+
+  register() {
     this.route.navigateByUrl('register')
   }
 
-  async presentToast(message:string, color:string) {
+  async presentToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message: message,
       duration: 2000,
