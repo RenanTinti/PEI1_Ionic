@@ -35,10 +35,6 @@ const routes: Routes = [
     path: 'lista-localidades',
     loadChildren: () => import('./pages/lista-localidades/lista-localidades.module').then(m => m.ListaLocalidadesPageModule)
   },
-  {
-    path: 'cep',
-    loadChildren: () => import('./pages/cep/cep.module').then( m => m.CepPageModule)
-  },
 ];
 
 @NgModule({

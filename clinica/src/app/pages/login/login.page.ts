@@ -18,8 +18,7 @@ export class LoginPage implements OnInit {
     private nav: NavController,
     public toastController: ToastController,
     private route: Router,
-    public fireService: FireserviceService
-
+    public fireService: FireserviceService,
   ) { }
 
   ngOnInit() {
@@ -30,7 +29,6 @@ export class LoginPage implements OnInit {
       const res: any = await this.fireService.loginWithEmail({ email: this.email, senha: this.senha });
       this.route.navigate(['/home']);
       this.data = this.fireService.simpleQuery(this.email)
-      console.log(this.data)
       this.presentToast('Logou com sucesso', 'success');
     } catch (error: any) {
       this.presentToast(error, 'danger');

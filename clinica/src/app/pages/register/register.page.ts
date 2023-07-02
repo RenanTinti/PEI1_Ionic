@@ -66,13 +66,13 @@ export class RegisterPage implements OnInit {
               this.route.navigate(['/login']);
             })
             .catch((saveErr: any) => {
-              console.log(saveErr);
+              alert(saveErr);
             });
         }
       })
       .catch((signupErr: any) => {
         alert(signupErr.message);
-        console.log(signupErr);
+        alert(signupErr);
       });
   }
 
