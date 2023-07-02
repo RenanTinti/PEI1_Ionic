@@ -12,6 +12,7 @@ export class LoginPage implements OnInit {
 
   email: string | undefined;
   senha: string | undefined;
+  data: any | undefined;
 
   constructor(
     private nav: NavController,
@@ -28,25 +29,13 @@ export class LoginPage implements OnInit {
     try {
       const res: any = await this.fireService.loginWithEmail({ email: this.email, senha: this.senha });
       this.route.navigate(['/home']);
+      this.data = this.fireService.simpleQuery(this.email)
+      console.log(this.data)
       this.presentToast('Logou com sucesso', 'success');
     } catch (error: any) {
       this.presentToast(error, 'danger');
     }
   }
-
-  /*
-  login() {
-    const aux: any = localStorage.getItem('pessoa')
-    var lista = JSON.parse(aux)
-    if (this.email === lista.email && this.senha === lista.senha) {
-      this.route.navigateByUrl('home')
-      this.presentToast('Login Successful', 'success')
-    } else {
-      this.presentToast('Wrong Login', 'danger')
-    }
-  }
-
-  */
 
   register() {
     this.route.navigateByUrl('register')

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { AngularFirestore, AngularFirestoreCollection, QueryFn } from "@angular/fire/compat/firestore";
 
 @Injectable({
   providedIn: "root",
@@ -23,5 +23,14 @@ export class FireserviceService {
   }
   getDetails(data: any) {
     return this.firestore.collection("usuarios").doc(data.uid).valueChanges();
+  }
+  simpleQuery(email: any) {
+    this.firestore.collection('usuarios', ref => ref.where('email', '==', email))
+      .get()
+      .subscribe(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          console.log(doc.id, ' => ', doc.data());
+        });
+      });
   }
 }

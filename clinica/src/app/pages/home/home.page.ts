@@ -10,25 +10,21 @@ export class HomePage {
 
   constructor(
     private nav: NavController
-  ) {}
+  ) { }
 
   ngOnInit() {
   }
 
-  ionViewWillEnter(){
-    const aux:any = localStorage.getItem('schedulings')
+  ionViewWillEnter() {
+    const aux: any = localStorage.getItem('schedulings')
     this.listscheduling = JSON.parse(aux)
   }
 
-  back(){
+  back() {
     this.nav.back();
   }
 
-  exibeCadastro(){
-    this.nav.navigateForward('scheduling');
-  }
-
   listscheduling = [
-    {examType: '', date: ''},
+    { examType: '', date: '' },
   ]
 }

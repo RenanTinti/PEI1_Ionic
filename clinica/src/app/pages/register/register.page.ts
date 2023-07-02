@@ -63,7 +63,7 @@ export class RegisterPage implements OnInit {
           this.fireService.saveDetails(data)
             .then(() => {
               alert('Conta criada com sucesso!');
-              this.route.navigate(['/home']);
+              this.route.navigate(['/login']);
             })
             .catch((saveErr: any) => {
               console.log(saveErr);
@@ -75,27 +75,6 @@ export class RegisterPage implements OnInit {
         console.log(signupErr);
       });
   }
-
-  /*
-  register() {
-    const aux: any = localStorage.getItem('pessoa')
-    var lista = JSON.parse(aux)
-
-    const name = this.name;
-    const email = this.email;
-    const senha = this.senha;
-    const data = { name, email, senha }
-
-    //if(email == lista.email){
-    //this.presentToast('Email já existente', 'danger')
-    //}else{
-    localStorage.setItem('pessoa', JSON.stringify(data))
-    this.presentToast('Cadastro feito com sucesso!', 'success')
-    this.back()
-    //}
-  }
-
-  */
 
   limparFormulario = () => {
     this.endereco = ''

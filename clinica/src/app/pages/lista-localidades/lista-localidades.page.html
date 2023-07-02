@@ -1,18 +1,15 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Verifique se temos uma unidade em sua localidade</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-navbar [titulo]="'Marcar consulta'"></app-navbar>
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let localidade of localidades">
-      <ion-text>
-        <h2>Localidade: {{ localidade.nome }}</h2>
-        <p>Município: {{ localidade.municipio.nome }}</p>
-        <p>Mesorregião: {{ localidade.municipio.microrregiao.mesorregiao.nome }}</p>
-        <!--<ion-button>Consultar</ion-button>-->
-      </ion-text>
-    </ion-item>
-  </ion-list>
+  <app-tabs></app-tabs>
+  <div class="page-content">
+    <ion-list>
+      <ion-item *ngFor="let localidade of localidades">
+        <ion-text>
+          <h2>Localidade: {{ localidade.nome }}</h2>
+          <p>Município: {{ localidade.municipio.nome }}</p>
+          <p>Mesorregião: {{ localidade.municipio.microrregiao.mesorregiao.nome }}</p>
+        </ion-text>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { schedulingPageRoutingModule } from './scheduling-routing.module';
 
 import { schedulingPage } from './scheduling.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    schedulingPageRoutingModule
+    schedulingPageRoutingModule,
+    ComponentsModule,
   ],
   declarations: [schedulingPage]
 })
-export class schedulingPageModule {}
+export class schedulingPageModule { }
