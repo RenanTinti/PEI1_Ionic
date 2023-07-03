@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register-form/register-form.module').then(m => m.FormCadastroPageModule)
   },
   {
-    path: 'pessoa',
-    loadChildren: () => import('./pages/lista-pessoa/lista-pessoa.module').then(m => m.ListaPessoaPageModule)
-  },
-  {
     path: 'scheduling',
     loadChildren: () => import('./pages/scheduling/scheduling.module').then(m => m.schedulingPageModule)
   },

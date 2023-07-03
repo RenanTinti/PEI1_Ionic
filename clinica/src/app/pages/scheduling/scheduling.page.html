@@ -10,7 +10,7 @@
       <ion-card-subtitle class="ion-text-center ion-margin-bottom">Agende uma consulta</ion-card-subtitle>
       <ion-row class="ion-justify-content-center">
         <ion-item>
-          <ion-label>Choose an option:</ion-label>
+          <ion-label>Exame:</ion-label>
           <ion-select [(ngModel)]="examType">
             <ion-select-option value="Exame de acuidade visual">Exame de acuidade visual</ion-select-option>
             <ion-select-option value="Tonometria">Tonometria</ion-select-option>
@@ -27,8 +27,19 @@
       </ion-row>
       <ion-row class="ion-justify-content-center">
         <ion-item>
-          <ion-datetime presentation="date" [(ngModel)]="date" value="2022-04-21T00:00:00" min="2022-03-01T00:00:00"
-            max="2022-05-31T23:59:59"></ion-datetime>
+          <ion-label>Unidade:</ion-label>
+          <ion-select [(ngModel)]="unidade">
+            <ion-item *ngFor="let localidade of localidades">
+              <ion-select-option value="{{ localidade.nome }}">
+                {{ localidade.nome }}</ion-select-option>
+            </ion-item>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-item>
+          <ion-datetime presentation="date" [(ngModel)]="date" value="2022-04-21T00:00:00" min="2023-07-01T00:00:00"
+            max="2024-12-31T23:59:59"></ion-datetime>
         </ion-item>
       </ion-row>
       <ion-row class="ion-justify-content-center">

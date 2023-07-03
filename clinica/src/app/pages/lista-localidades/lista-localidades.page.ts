@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CookieService } from 'src/app/services/cookie.service';
+import { LocalidadeService } from 'src/app/services/localidade.service';
 
 @Component({
   selector: 'app-lista-produto',
@@ -14,18 +14,15 @@ export class ListaLocalidadesPage {
   localidades: any = [];
 
   constructor(
-    private http: HttpClient,
     private cookieService: CookieService,
+    private localidadeService: LocalidadeService,
   ) { }
 
   ionViewWillEnter() {
     this.cookies = this.cookieService.getCookie("dados");
-    this.cookies = this.cookies.split(",");
-    this.uf = this.cookies[1];
-    this.url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/" + this.uf + "/municipios";
-    this.http.get<any[]>(this.url).subscribe((data) => {
-      this.localidades = data;
-    });
+    this.localidadeService.getLocalidades(this.cookies)
+      .then((localidades) => {
+        this.localidades = localidades;
+      })
   }
-
 }

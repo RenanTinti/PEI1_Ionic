@@ -2,15 +2,15 @@
 <ion-content>
   <app-tabs></app-tabs>
   <div class="page-content">
-    <ion-row>
-      <p>Seja bem vindo, {{name}}!</p>
+    <ion-row class="ion-text-center ion-justify-content-center">
+      <h3 class="ion-text-center ion-margin-bottom">Seja bem vindo, {{name}}!</h3>
+    </ion-row>
+    <ion-row class="ion-text-center ion-justify-content-center">
+      <h4 class="ion-text-center ion-margin-bottom">Consultas marcadas:</h4>
     </ion-row>
     <ion-list>
       <ion-item *ngFor="let item of listscheduling">
-        <ion-text>
-          <p>Data: {{item.date}}</p>
-          <p>Exame: {{item.examType}}</p>
-        </ion-text>
+        <app-schedulings [exame]="item.examType" [data]="item.date" [local]="item.unidade"></app-schedulings>
       </ion-item>
     </ion-list>
   </div>

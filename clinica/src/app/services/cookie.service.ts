@@ -7,6 +7,10 @@ export class CookieService {
 
   constructor() { }
 
+  getCookies = () => {
+    return document.cookie;
+  };
+
   setCookie(name: string, value: string, days: number) {
     let expires = "";
     if (days) {
